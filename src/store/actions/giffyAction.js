@@ -1,25 +1,29 @@
 import axios from 'axios';
 import { FETCHGIF, FETCHGIFID } from './type';
 
-export const fetchSearchGif = (search) => (dispatch) => {
-  try {
-    const res = axios.get(
-      `https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${search}&limit=25&offset=0&rating=Y&lang=en`
-    );
+export const fetchSearchGif = (search) => {
+  return async (dispatch, state) => {
+    try {
+      state.loading = true;
+      const res = await axios.get(
+        `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=carrot&limit=50&offset=0&rating=Y&lang=en`
+      );
 
-    dispatch({
-      type: FETCHGIF,
-      payload: res,
-    });
-  } catch (err) {
-    console.log(err);
-  }
+      state.loading = false;
+      dispatch({
+        type: FETCHGIF,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 };
 
-export const fetchSingleGif = (id) => (dispatch) => {
+export const fetchSingleGif = (id) => async (dispatch) => {
   try {
-    const res = axios.get(
-      `https://api.giphy.com/v1/gifs/${id}?api_key=${process.env.API_KEY}`
+    const res = await axios.get(
+      `https://api.giphy.com/v1/gifs/${id}?api_key=${process.env.REACT_APP_API_KEY}`
     );
 
     dispatch({

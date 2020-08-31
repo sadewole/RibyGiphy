@@ -20,6 +20,5 @@
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.3);
-  /* z-index: 1; */
   transition: all 0.5s ease-in-out;
 }
