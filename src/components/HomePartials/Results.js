@@ -32,7 +32,7 @@ const Results = ({ data, pagination }) => {
               />
 
               <div className='overlay-link'>
-                <Link to={`/${item.id}`}>
+                <Link to={`/detail/${item.id}`}>
                   <button className='btn btn-secondary'>View details</button>
                 </Link>
               </div>

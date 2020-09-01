@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/:id' component={GifDetail} />
+          <Route exact path='/detail/:id' component={GifDetail} />
         </Switch>
       </div>
     </Router>

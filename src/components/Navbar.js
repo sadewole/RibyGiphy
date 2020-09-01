@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -9,11 +9,15 @@ const Navbar = () => {
           RibyGiphy
         </NavLink>
 
-        <Link to='#' className='navbar-nav ml-auto'>
+        <a
+          href='https://github.com/sadewole/RibyGiphy'
+          target='_blank'
+          className='navbar-nav ml-auto'
+        >
           <button className='btn btn-secondary my-2'>
             <i className='fab fa-github'></i>
           </button>
-        </Link>
+        </a>
       </nav>
     </header>
   );

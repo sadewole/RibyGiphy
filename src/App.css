@@ -22,3 +22,25 @@
   background: rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease-in-out;
 }
+
+.flex-url {
+  display: flex;
+  border: 1px solid beige;
+  padding: 10px;
+}
+
+.horizontal-scroll {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.urlFont {
+  padding-top: 7px;
+  font-weight: bold;
+  font-size: larger;
+}
