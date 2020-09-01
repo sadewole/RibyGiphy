@@ -31,7 +31,7 @@ const Home = () => {
     <main>
       <SearchBar setQuery={(e) => setSearch(e)} />
       {empty ? (
-        <h2>{message}</h2>
+        <p className='text-center'>{message}</p>
       ) : (
         <Results data={data} pagination={pagination} />
       )}

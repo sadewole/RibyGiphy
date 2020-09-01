@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Pagination = ({ itemPerPage, totalItem, paginate }) => {
+const Pagination = ({
+  itemPerPage,
+  totalItem,
+  paginate,
+  nextPaginate,
+  prevPaginate,
+  currentPage,
+}) => {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalItem / itemPerPage); i++) {
     pageNumbers.push(i);
@@ -9,8 +16,8 @@ const Pagination = ({ itemPerPage, totalItem, paginate }) => {
   return (
     <div className='mx-auto mt-3'>
       <ul className='pagination'>
-        <li className='page-item disabled'>
-          <Link className='page-link' to=''>
+        <li className={`page-item ${currentPage === 1 && 'disabled'}`}>
+          <Link className='page-link' to='' onClick={() => prevPaginate(1)}>
             &laquo;
           </Link>
         </li>
@@ -23,8 +30,12 @@ const Pagination = ({ itemPerPage, totalItem, paginate }) => {
           </li>
         ))}
 
-        <li className='page-item'>
-          <Link className='page-link' to=''>
+        <li
+          className={`page-item ${
+            currentPage === pageNumbers.length && 'disabled'
+          }`}
+        >
+          <Link className='page-link' to='' onClick={() => nextPaginate(-1)}>
             &raquo;
           </Link>
         </li>

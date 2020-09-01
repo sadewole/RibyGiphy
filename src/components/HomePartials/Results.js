@@ -13,6 +13,8 @@ const Results = ({ data, pagination }) => {
 
   // change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const nextPaginate = (e) => setCurrentPage(currentPage + e);
+  const prevPaginate = (e) => setCurrentPage(currentPage + e);
 
   return (
     <div className='container mt-3'>
@@ -40,9 +42,12 @@ const Results = ({ data, pagination }) => {
       </div>
       {data.length > 1 && (
         <Pagination
+          currentPage={currentPage}
           itemPerPage={itemPerPage}
           totalItem={data.length}
           paginate={paginate}
+          prevPaginate={prevPaginate}
+          nextPaginate={nextPaginate}
         />
       )}
     </div>
